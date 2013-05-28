@@ -1,6 +1,8 @@
-package test.java.com.unrc.app;
+package com.unrc.app;
 
-import main.com.unrc.app.models.OwnerBuilding;
+
+
+import com.unrc.app.models.OwnerBuilding;
 
 import org.javalite.activejdbc.Base;
 import org.junit.After;
@@ -13,7 +15,7 @@ public class OwnerBuildingSpec{
 
     @Before
     public void before(){
-        Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "root");
+        Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "");
         Base.openTransaction();
     }
 

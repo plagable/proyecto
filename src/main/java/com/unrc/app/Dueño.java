@@ -1,14 +1,27 @@
 package com.unrc.app;
 
 import com.unrc.app.models.Owner;
-
 import org.javalite.activejdbc.Base;
 import org.slf4j.spi.*;
 
 public class Dueño {
 
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+   
+    
 //metodos insertar,modificar,eliminar dueño inmobiliaria    
-	public static void insertar(String first_name,String last_name,String city,String phone_number,String neighborhood,String street,String email){
+	
+    
+    public static void insertar(String first_name,String last_name,String city,String phone_number,String neighborhood,String street,String email){
 		Owner inmo=new Owner();
 		inmo.set("first_name",first_name);
 		inmo.set("last_name",last_name);        
@@ -41,5 +54,8 @@ public class Dueño {
 		}
 
 	}
+        
+        
+        
 }	
 	

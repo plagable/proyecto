@@ -1,13 +1,11 @@
 package com.unrc.app;
 
 
-
-
 import com.unrc.app.models.*;
 
 import org.javalite.activejdbc.Base;
-
 import org.slf4j.spi.*;
+
 
 public class DueñoInmueble {
 
@@ -28,10 +26,6 @@ public class DueñoInmueble {
 		
 	}
 
-
-
-
-
 	public static void modificar(int id,String element, String  change){
 		OwnerBuilding o=new OwnerBuilding();
 		o=o.findById(id);
@@ -41,8 +35,6 @@ public class DueñoInmueble {
 		}
 
 	}
-
-
 
 	public static void eliminar(int id){
 		OwnerBuilding o=new OwnerBuilding();

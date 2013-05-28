@@ -1,6 +1,6 @@
-package test.java.com.unrc.app;
+package com.unrc.app;
 
-import main.com.unrc.app.models.RealState;
+import com.unrc.app.models.RealState;
 
 import org.javalite.activejdbc.Base;
 import org.junit.After;
@@ -13,7 +13,7 @@ public class RealStateSpec{
 
     @Before
     public void before(){
-        Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "root");
+        Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "");
         Base.openTransaction();
     }
 

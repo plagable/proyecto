@@ -1,4 +1,5 @@
-package test.java.com.unrc.app;
+package com.unrc.app;
+
 
 import org.junit.ClassRule;
 import org.junit.rules.ExternalResource;

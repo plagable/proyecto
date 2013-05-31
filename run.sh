@@ -12,4 +12,5 @@ export CLASSPATH=$CLASSPATH:target/classes
 echo "*******************  EXECUTING PROGRAM******************************************"
 
 java -cp $CLASSPATH -Dactivejdbc.log com.unrc.app.Inmo
-#mvn compile exec:java -Dexec.mainClass="com.unrc.app.Imno"
+mvn compile exec:java -Dexec.mainClass="com.unrc.app.Imno"
+#mvn compile exec:java -Dexec.mainClass="com.unrc.app.mainspark"

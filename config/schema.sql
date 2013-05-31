@@ -1,6 +1,4 @@
-drop database Tables;
-create database Tables;
-use Tables;
+
 
 DROP TABLE IF EXISTS users;
 CREATE TABLE users(
@@ -8,7 +6,7 @@ CREATE TABLE users(
   email VARCHAR(60),
   first_name VARCHAR(56),
   last_name VARCHAR(56)
-/**  role VARCHAR(3)/** ADM por administrador, USR por usuario*/
+
 )ENGINE=innoDB;
 
 INSERT INTO `users` (`email`,`first_name`,`last_name`/**, `role`*/) VALUES 
@@ -108,7 +106,7 @@ CREATE TABLE ads(
   descriptive_text VARCHAR(80),
   id_Building int(11),
   id_ownersBuilding int(11),
-  FOREIGN KEY (id_Building) REFERENCES buildings(id) ON UPDATE CASCADE ON DELETE CASCADE, /** verificar como borrar la depencias xq si borro un anuncio se borra un dueño inmueble*/
+  FOREIGN KEY (id_Building) REFERENCES buildings(id) ON UPDATE CASCADE ON DELETE CASCADE, 
   FOREIGN KEY (id_ownersBuilding) REFERENCES owner_buildings(id) ON UPDATE CASCADE ON DELETE CASCADE
 )ENGINE=innoDB;
 

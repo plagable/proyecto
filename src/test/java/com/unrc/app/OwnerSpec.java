@@ -3,22 +3,22 @@ package com.unrc.app;
 import com.unrc.app.models.*;
 
 import org.javalite.activejdbc.Base;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 
 import static org.javalite.test.jspec.JSpec.the;
 
-public class OwnerSpec{
-    public void before(){
+public class OwnerSpec {
+
+    public void before() {
         Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "");
         Base.openTransaction();
     }
-    public void after(){
+
+    public void after() {
         Base.rollbackTransaction();
         Base.close();
     }
-    public void shouldValidateMandatoryFields(){
+
+    public void shouldValidateMandatoryFields() {
 
         Owner owner = new Owner();
 

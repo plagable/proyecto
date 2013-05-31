@@ -1,61 +1,34 @@
 package com.unrc.app;
 
 import com.unrc.app.models.Owner;
-import org.javalite.activejdbc.Base;
-import org.slf4j.spi.*;
 
 public class Dueño {
 
-    private int id;
-
-    public int getId() {
-        return id;
+// metodos insertar,modificar,eliminar dueño inmobiliaria
+    public static void insertar(String first_name, String last_name, String city, int phone_number, String neighborhood, String street, String email) {
+        Owner inmo = new Owner();
+        inmo.set("first_name", first_name);
+        inmo.set("last_name", last_name);
+        inmo.set("city", city);
+        inmo.set("phone_number", phone_number);
+        inmo.set("neighborhood", neighborhood);
+        inmo.set("street", street);
+        inmo.set("email", email);
+        inmo.saveIt();
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public static void modificar(int id, String element, String change) {
+        Owner inmo = Owner.findById(id);
+        if (inmo != null) {
+            inmo.set(element, change);
+            inmo.saveIt();
+        }
     }
 
-   
-    
-//metodos insertar,modificar,eliminar dueño inmobiliaria    
-	
-    
-    public static void insertar(String first_name,String last_name,String city,String phone_number,String neighborhood,String street,String email){
-		Owner inmo=new Owner();
-		inmo.set("first_name",first_name);
-		inmo.set("last_name",last_name);        
-		inmo.set("city",city); 
-		inmo.set("phone_number",phone_number);
-		inmo.set("neighborhood",neighborhood);
-		inmo.set("street",street);
-		inmo.set("email",email);
-		inmo.saveIt();			
-	}
-
-	
-	
-	public static void modificar(int id,String element, String  change){
-		Owner inmo=new Owner();
-		inmo=inmo.findById(id);
-		if (inmo!=null){
-			inmo.set(element,change);
-			inmo.saveIt();			
-
-		}
-		
-	}
-	
-	public static void eliminar(int id){
-		Owner inmo=new Owner();
-		inmo=inmo.findById(id);
-		if (inmo!=null){
-			inmo.deleteCascade();
-		}
-
-	}
-        
-        
-        
-}	
-	
+    public static void eliminar(int id) {
+        Owner inmo = Owner.findById(id);
+        if (inmo != null) {
+            inmo.deleteCascade();
+        }
+    }
+}

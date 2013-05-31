@@ -1,37 +1,35 @@
 package com.unrc.app;
 
 import com.unrc.app.models.Ad;
-
 import org.javalite.activejdbc.Base;
+import static org.javalite.test.jspec.JSpec.the;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.javalite.test.jspec.JSpec.the;
-
-public class AdSpec{
+public class AdSpec {
 
     @Before
-    public void before(){
+    public void before() {
         Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "");
         Base.openTransaction();
     }
 
     @After
-    public void after(){
+    public void after() {
         Base.rollbackTransaction();
         Base.close();
     }
 
     @Test
-    public void shouldValidateMandatoryFields(){
+    public void shouldValidateMandatoryFields() {
 
         Ad ad = new Ad();
 
         //check errors
         the(ad).shouldNotBe("valid");
         the(ad.errors().get("descriptive_text")).shouldBeEqual("value is missing");
-       
+
         //set missing values
         ad.set("descriptive_text", "texto");
 

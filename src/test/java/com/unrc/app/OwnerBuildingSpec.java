@@ -1,32 +1,28 @@
 package com.unrc.app;
 
-
-
 import com.unrc.app.models.OwnerBuilding;
-
 import org.javalite.activejdbc.Base;
+import static org.javalite.test.jspec.JSpec.the;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.javalite.test.jspec.JSpec.the;
-
-public class OwnerBuildingSpec{
+public class OwnerBuildingSpec {
 
     @Before
-    public void before(){
+    public void before() {
         Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "");
         Base.openTransaction();
     }
 
     @After
-    public void after(){
+    public void after() {
         Base.rollbackTransaction();
         Base.close();
     }
 
     @Test
-    public void shouldValidateMandatoryFields(){
+    public void shouldValidateMandatoryFields() {
 
         OwnerBuilding ownerBulding = new OwnerBuilding();
 
@@ -39,9 +35,9 @@ public class OwnerBuildingSpec{
         the(ownerBulding.errors().get("street")).shouldBeEqual("value is missing");
         the(ownerBulding.errors().get("email")).shouldBeEqual("value is missing");
         the(ownerBulding.errors().get("phone_number")).shouldBeEqual("value is missing");
-        the(ownerBulding.errors().get("idRealState")).shouldBeEqual("value is missing");    
-        
-        
+        the(ownerBulding.errors().get("idRealState")).shouldBeEqual("value is missing");
+
+
         //set missing values
         ownerBulding.set("first_name", "Matias", "last_name", "Alvarez");
 
